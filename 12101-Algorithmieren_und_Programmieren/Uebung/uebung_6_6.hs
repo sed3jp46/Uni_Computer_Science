@@ -23,6 +23,6 @@ vereinigung (Menge el) (Menge al) = Menge (el ++ al)
 
 schnitt :: (Ord el) => Menge el -> Menge el -> Menge el
 schnitt (Menge al) (Menge el) =
-    if length [al] < length [el] then Menge ([ x | x <- al, x `elem` el])
+    if length [al] < length [el] then Menge ( reverse ([ x | x <- al, x `elem` el]))
     else Menge ([ x | x <- el, x `elem` al])
 
