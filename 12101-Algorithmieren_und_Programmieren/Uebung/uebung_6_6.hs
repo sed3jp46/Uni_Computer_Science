@@ -1,4 +1,4 @@
-module Menge (Menge(), leer, einfuegen, loeschen, vereinigung, schnitt, ) where
+module Menge (Menge(), leer, einfuegen, loeschen, vereinigung, schnitt, istLeer, istElement) where
 import Data.List (sort)
 
 
@@ -23,6 +23,24 @@ vereinigung (Menge el) (Menge al) = Menge (el ++ al)
 
 schnitt :: (Ord el) => Menge el -> Menge el -> Menge el
 schnitt (Menge al) (Menge el) =
-    if length [al] < length [el] then Menge ( reverse ([ x | x <- al, x `elem` el]))
-    else Menge ([ x | x <- el, x `elem` al])
+    if length [al] < length [el] then Menge ( reverse ( sort [ x | x <- al, x `elem` el]))
+    else Menge ( reverse ( sort [ x | x <- el, x `elem` al]))
 
+{- differenz :: (Ord el) => Menge el -> Menge el -> Menge el
+differenz (Menge el) (Menge al) =
+    if length al < length el then Menge (reverse (sort (el // al)))
+    else  Menge (reverse (sort (al // el))) -}
+
+istLeer :: Menge el -> Bool
+istLeer (Menge el) =
+    null el
+
+istElement :: (Ord el) => el -> Menge el -> Bool
+istElement _ (Menge []) = False
+istElement el (Menge al) = check el al
+
+check :: a -> [a] -> Bool
+check _ [] = False
+check a [a]
+    | a == head [a] = True
+    | otherwise = check a (tail [a]) 
