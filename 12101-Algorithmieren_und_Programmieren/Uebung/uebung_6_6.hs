@@ -1,4 +1,4 @@
-module Menge (Menge(), leer, einfuegen, loeschen, vereinigung, schnitt, istLeer, istElement) where
+module Menge (Menge(), leer, einfuegen, loeschen, vereinigung, schnitt, istLeer, istElement, istTeilmenge) where
 import Data.List (sort)
 
 
@@ -37,10 +37,11 @@ istLeer (Menge el) =
 
 istElement :: (Ord el) => el -> Menge el -> Bool
 istElement _ (Menge []) = False
-istElement el (Menge al) = check el al
+istElement el (Menge al)
+    | el == head (al) = True
+    | otherwise = istElement el (Menge (tail (al)))
 
-check :: a -> [a] -> Bool
-check _ [] = False
-check a [a]
-    | a == head [a] = True
-    | otherwise = check a (tail [a]) 
+istTeilmenge :: (Ord el) => Menge el -> Menge el -> Bool
+istTeilmenge (Menge []) _ = True
+istTeilmenge (Menge al) (Menge el) =
+    istElement (head (al)) (Menge el) && istElement (head (tail (al))) (Menge el)
