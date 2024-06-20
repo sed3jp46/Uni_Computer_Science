@@ -1,5 +1,4 @@
-import Data.Binary.Get (label)
-data Tree a = Leaf
+ata Tree a = Leaf
     | Node a (Tree a) (Tree a) deriving Show
 
 insertTree :: Ord a => a -> Tree a -> Tree a

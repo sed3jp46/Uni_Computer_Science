@@ -1,4 +1,5 @@
 import Prelude hiding (map, any, all, iterate, filter, takeWhile, zipWith, curry, uncurry, (.), foldr, foldl, foldl1, foldr1)
+import Distribution.Simple.Program.HcPkg (list)
 
 
 map :: (a -> b) -> [a] -> [b]
@@ -16,7 +17,7 @@ all _ [] = True
 all f (a:as) = f a && all f as
 
 iterate :: (a -> a) -> a -> [a]
-iterate f a = [a]
+iterate f a = a : iterate f (f a)
 
 takeWhile :: (a -> Bool) -> [a] -> [a]
 takeWhile _ [] = []
@@ -30,7 +31,7 @@ filter f (a:as) =
     else filter f as
 
 partition :: (a -> Bool) -> [a] -> ([a], [a])
-partition f (a:as) = ([a],as)
+partition f list = ([x | x <- list , f x] , [y | y <- list , not (f y)])
 
 zipwith :: (a -> b -> c) -> [a] -> [b] -> [c]
 zipwith f [] bs = []
@@ -62,6 +63,9 @@ foldl1 :: (a -> a -> a) -> [a] -> a
 foldl1 f [x] = x
 foldl1 f (x:xs) = foldl f x xs
 
---alleAnwenden :: [arg -> wert] -> arg -> [wert]
+alleAnwenden :: [arg -> wert] -> arg -> [wert]
+alleAnwenden [] _ = []
+alleAnwenden (x:xs) a = x a : alleAnwenden xs a
 
---hintereinanderAnwenden :: [wert -> wert] -> wert -> wert
+hintereinanderAnwenden :: [wert -> wert] -> wert -> wert
+hintereinanderAnwenden xs a = foldl (\ a x -> x a) a xs
