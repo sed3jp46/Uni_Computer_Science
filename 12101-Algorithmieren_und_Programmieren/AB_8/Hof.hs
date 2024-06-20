@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
+{-# HLINT ignore "Use foldr" #-}
 import Prelude hiding (map, any, all, iterate, filter, takeWhile, zipWith, curry, uncurry, (.), foldr, foldl, foldl1, foldr1)
 import Distribution.Simple.Program.HcPkg (list)
 
@@ -5,7 +7,7 @@ import Distribution.Simple.Program.HcPkg (list)
 map :: (a -> b) -> [a] -> [b]
 map _ [] = []
 map f (a:as) = f a : map f as
-
+--alt map f list = [ f a | a <- list]
 any :: (a -> Bool) -> [a] -> Bool
 any _ [] = False
 any f (a:as)
@@ -25,7 +27,6 @@ takeWhile f (a:as) = [a | a <- a:as, f a]
 
 filter :: (a -> Bool) -> [a] -> [a]
 filter f [] = []
-filter f [a] = [a]
 filter f (a:as) =
     if f a then a : filter f as
     else filter f as
