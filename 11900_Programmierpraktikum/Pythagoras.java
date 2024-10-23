@@ -10,10 +10,10 @@ public class Pythagoras {
     Scanner input = new Scanner(System.in);
     
     System.out.println("Wie lang ist a ?");
-    a = input.nextFloat();
+    a = input.nextInt();
     
     System.out.println("wie lang ist b ?");
-    b = input.nextFloat();
+    b = input.nextInt();
     
     c = a*a + b*b;
     result = (double) Math.sqrt(c);
