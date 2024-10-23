@@ -16,7 +16,7 @@ public class Potenz {
         double intNum;
         double doubleNum;
 
-        intNum = Math.pow(a, b);
+        intNum = Math.pow((int)a,(int)b);
         doubleNum = Math.pow(a, b);
 
         System.out.println("Ganzzahl = " + intNum + ", Gleitkomma = " + doubleNum);
