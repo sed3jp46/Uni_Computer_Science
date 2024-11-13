@@ -7,7 +7,20 @@ public class Vergleiche {
     private static Scanner s = new Scanner(System.in);
     
     public static void main(String [] args) {
-        
+        int n;
+        System.out.println("Welche Funktion wollen sie nutzen ? 1 = compare Names oder 2 = compare numbers.")
+        n = s.nextInt();
+        switch(n){
+        case 1:
+            compareNames();
+            break;
+        case 2:
+            compareNumbers();
+            break;
+        default:
+            System.out.println("Bitte wählen sie 1 oder 2. :(")
+            break;    
+        }
         
         
     }
@@ -53,6 +66,7 @@ public class Vergleiche {
         int durchschnitt = Summe/3;
 
         System.out.println("Die Summe der 3 Zahlen ist: "+ Summe + " und der Durchschnitt beträgt: "+ durchschnitt);
+        
         
         
     }
