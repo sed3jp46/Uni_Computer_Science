@@ -8,7 +8,7 @@ public class Vergleiche {
     
     public static void main(String [] args) {
         int n;
-        System.out.println("Welche Funktion wollen sie nutzen ? 1 = compare Names oder 2 = compare numbers.")
+        System.out.println("Welche Funktion wollen sie nutzen ? 1 = compare Names oder 2 = compare numbers.");
         n = s.nextInt();
         switch(n){
         case 1:
@@ -18,7 +18,7 @@ public class Vergleiche {
             compareNumbers();
             break;
         default:
-            System.out.println("Bitte wählen sie 1 oder 2. :(")
+            System.out.println("Bitte wählen sie 1 oder 2. :(");
             break;    
         }
         
