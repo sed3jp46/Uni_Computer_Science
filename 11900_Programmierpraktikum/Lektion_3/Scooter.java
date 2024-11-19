@@ -28,32 +28,37 @@ public class Scooter {
 		switch(c){
 			case 1:
 				price = price1;
+				vendor = "Anbieter 1";
 				break;
 			case 2:
 				price = price2;
+				vendor = "Anbieter 2";
 				break;
 			case 3:
 				price = price3;
+				vendor = "Anbieter 3";
 				break;
 			case 4:
 				price = price4;
+				vendor = "Anbieter 4";
 				break;
 			case 5:
-				if (price1 < price2  && price1 < 5 && price < price4) {
+				if (price1 <= price2  && price1 <= 5 && price <= price4) {
 					price = price1;
 					vendor = "Anbieter 1";
 				}
-				else if (price2 < price1  && price2 < 5 && price2 < price2) {
+				else if (price2 <= price1  && price2 <= 5 && price2 <= price2) {
 					price = price2;
 					vendor = "Anbieter 2";
 				}
-				else if (price2 < price1  && price2 < 5 && price2 < price2) {
+				else if (5 <= price1  && 5 <= price2 && 5 <= price4) {
 					vendor = "Anbieter 3";
 				}
 				else {
 					price = price4;
 					vendor = "Anbieter 4";
 				}
+				break;
 			default :
 				System.err.print("Wählen sie eine Zahl zwischen 1-5 bitte");
 				System.exit(0);
