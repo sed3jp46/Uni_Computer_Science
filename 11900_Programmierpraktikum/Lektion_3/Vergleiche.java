@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import javax.swing.SpinnerNumberModel;
-
 public class Vergleiche {
     
     private static Scanner s = new Scanner(System.in);
