@@ -66,7 +66,7 @@ public class Scooter {
         
         /////System.out.print( km + " Kilometer sollen gefahren werden.");
         System.out.print(" Der Scooter wurde entriegelt.");
-        System.out.print(" Sie bezahlen " + (float)price + " €.");
+        System.out.printf(" Sie bezahlen X.2f €.", price);
         System.out.println(" Vielen Dank, dass Sie sich fuer Anbieter " + vendor + " entschieden haben!");
         
 		s.close();
