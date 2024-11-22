@@ -20,5 +20,6 @@ public class Dauer {
         double result = (float)((Math.log(z/k))/(Math.log(1+p)));
         System.out.printf("%.2f" , result);
         
+        s.close();
     }
 }

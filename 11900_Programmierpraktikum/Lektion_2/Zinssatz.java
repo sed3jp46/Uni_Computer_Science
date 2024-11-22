@@ -25,5 +25,6 @@ public class Zinssatz {
         
         System.out.println(String.format("%.2f", result) + " %");
 
+        s.close();
     }
 }
