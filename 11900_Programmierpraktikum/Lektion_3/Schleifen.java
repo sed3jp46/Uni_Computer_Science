@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -47,6 +48,12 @@ public class Schleifen {
                     }else{
                         vowels();
                     }
+                    break;
+                case "r":
+                    rhombus();
+                    break;
+                case "b":
+                    binary();
                     break;
                 case "exit":
                 //System.exit(0);
@@ -112,13 +119,30 @@ public class Schleifen {
     }
     
     public static void rhombus() {
-        
-        
+        System.out.println("Geben sie eine ungerade Zahl ein");
+        int n = s.nextInt();
+        if (n % 2 != 0) {
+            rhombuserzeuger(n);
+        } else {
+            System.out.println("Error keine Ungerade Zahl");
+        }
         
     }
     
     public static void binary() {
-        
+        System.out.println("Bitte gebe eine Zahl an");
+        int k = s.nextInt();
+        int [] arr = new int[8];
+        for (int l = 0; l == 8; l++) {
+            if (k % 2 == 0) {
+                arr[l] = 0;
+            } else {
+                arr[l] = 1;
+            }
+            k = k / 2;
+        } 
+        String bcode = Arrays.toString(arr);
+        System.out.println(bcode);
         
         
     }
@@ -138,4 +162,35 @@ public class Schleifen {
             return ret.substring(1);
         return ret;
     }
+    private static void rhombuserzeuger(int n) {
+        int mid = n/2;
+        for (int i = 0; i <= mid; i++) {
+            // Leerzeichen
+            for (int j = 0; j < mid - i; j++) {
+                System.out.print(" ");
+            }
+            // Sterne
+            for (int j = 0; j < 2 * i + 1; j++) {
+                System.out.print("#");
+            }
+            System.out.println();
+        }
+
+        // Untere Hälfte der Raute
+        for (int i = mid - 1; i >= 0; i--) {
+            // Leerzeichen
+            for (int j = 0; j < mid - i; j++) {
+                System.out.print(" ");
+            }
+            // Sterne
+            for (int j = 0; j < 2 * i + 1; j++) {
+                System.out.print("#");
+            }
+            System.out.println();
+        }
+    }
+
+        
+
+    
 }
