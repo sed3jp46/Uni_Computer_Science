@@ -133,14 +133,11 @@ public class Schleifen {
         System.out.println("Bitte gebe eine Zahl an");
         int k = s.nextInt();
         int [] arr = new int[8];
-        for (int l = 0; l == 8; l++) {
-            if (k % 2 == 0) {
-                arr[l] = 0;
-            } else {
-                arr[l] = 1;
-            }
+        for (int l = 7; l >= 0; l--) {
+            arr[l] = k % 2;
+            
             k = k / 2;
-        } 
+        }
         String bcode = Arrays.toString(arr);
         System.out.println(bcode);
         
